@@ -1,0 +1,33 @@
+<!-- Campo de busca para filtrar moedas -->
+<input
+  type="text"
+  placeholder="Buscar por nome ou símbolo..."
+  [(ngModel)]="searchTerm"
+  class="search-input"
+/>
+
+<!-- Tabela para exibir as moedas -->
+<table>
+  <thead>
+    <tr>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Símbolo</th>
+      <th>Preço atual (USD)</th>
+      <th>Market Cap</th>
+      <th>Variação 24h (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of filteredCoins">
+      <td><img [src]="coin.image" alt="{{ coin.name }}" width="32" /></td>
+      <td>{{ coin.name }}</td>
+      <td>{{ coin.symbol | uppercase }}</td>
+      <td>{{ coin.currentPrice | currency:'USD' }}</td>
+      <td>{{ coin.marketCap | number }}</td>
+      <td [ngClass]="{'positive': coin.priceChangePercentage24h >= 0, 'negative': coin.priceChangePercentage24h < 0}">
+        {{ coin.priceChangePercentage24h | number:'1.2-2' }}%
+      </td>
+    </tr>
+  </tbody>
+</table>

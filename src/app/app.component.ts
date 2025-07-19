@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CoinListComponent } from './features/coins/pages/coin-list/coin-list.component';
+import { HttpClientModule } from '@angular/common/http';  // 🔔 Importação do módulo HTTP
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CoinListComponent, HttpClientModule],  // 🔔 Adicione aqui
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'frontend-crypto';
-}
+export class AppComponent {}
