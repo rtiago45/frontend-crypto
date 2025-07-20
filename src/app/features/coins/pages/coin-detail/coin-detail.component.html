@@ -1,0 +1,13 @@
+<div class="coin-detail" *ngIf="coin">
+
+
+  <img [src]="coin.image" alt="{{ coin.name }}" width="100">
+  <h2>{{ coin.name }} ({{ coin.symbol | uppercase }})</h2>
+  <p>💲 Preço atual: {{ coin.currentPrice | currency:'USD' }}</p>
+  <p>💼 Market Cap: {{ coin.marketCap | number }}</p>
+  <p [ngClass]="{'positive': coin.priceChangePercentage24h >= 0, 'negative': coin.priceChangePercentage24h < 0}">
+    📊 Variação 24h: {{ coin.priceChangePercentage24h | number:'1.2-2' }}%
+  </p>
+
+  <button (click)="goBack()" class="back-button">← Voltar</button>
+</div>

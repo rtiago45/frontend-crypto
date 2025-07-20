@@ -24,4 +24,21 @@ $border-radius: 8px;
   p {
     margin: 0.5rem 0;
   }
+
+  .back-button {
+  background-color: transparent;
+  border: 1px solid #00bcd4;
+  color: #00bcd4;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: #00bcd4;
+    color: #121212;
+  }
+}
+
 }

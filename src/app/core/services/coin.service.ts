@@ -25,4 +25,9 @@ export class CoinService {
   getCoins(): Observable<Coin[]> {
     return this.http.get<Coin[]>(this.apiUrl);
   }
+
+  getCoinById(id: string): Observable<Coin> {
+    return this.http.get<Coin>(`${this.apiUrl}/${id}`);
+  }
+
 }
